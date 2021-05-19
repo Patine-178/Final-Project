@@ -1,26 +1,17 @@
-import io, requests, os, base64, valorant, json
+import io, base64, valorant
 from PIL import Image
 from flask import Flask, request, render_template
 from flask_restx import Api, Resource, fields
 from flask_basicauth import BasicAuth
 from werkzeug.middleware.proxy_fix import ProxyFix
 from blueprints.api_key import api_key_name
-from blueprints.home import home
-from blueprints.agent import agent
-from blueprints.weapon import weapon
-from blueprints.map import map
 from model import TFModel
-from urllib.request import urlopen
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.config['BASIC_AUTH_USERNAME'] = 'admin'
 app.config['BASIC_AUTH_PASSWORD'] = 'admin'
 app.register_blueprint(api_key_name)
-app.register_blueprint(home)
-app.register_blueprint(agent)
-app.register_blueprint(weapon)
-app.register_blueprint(map)
 
 model = TFModel(model_dir='./ml-model/')
 model.load()
@@ -613,26 +604,3 @@ class MLAgent(Resource):
                 "prediction": "Prediction failed because request body base64 missing",
                 "confidence": 0.0
             }, 200
-
-@app.route('/client/agent/AI',methods=['GET', 'POST'] )
-def upload_file():
-    if request.method == 'POST':
-        if 'file1' not in request.files:
-            return 'there is no file1 in form!'
-        file1 = request.files['file1']
-
-        base64_encoded_data = base64.b64encode(file1.read())
-        base64_message = base64_encoded_data.decode('utf-8')
-
-        url = "http://127.0.0.1:5000/ml/agent?apiKey=t7_PoBODfDGpYiDPvBl_aw"
-        body = {
-            'base64': base64_message
-        }
-
-        prediction = requests.post(url, json = body)
-        url = urlopen("http://127.0.0.1:5000/searchAgent?apiKey=t7_PoBODfDGpYiDPvBl_aw&name="+prediction.json()['prediction']).read()
-        parsed_agent = json.loads(url)
-
-        return render_template('agent_prediction.html', agent=parsed_agent)
-
-    return render_template('agent_prediction.html')

@@ -35,3 +35,6 @@ def upload_file():
         return render_template('agent_prediction.html', agent=parsed_agent)
 
     return render_template('agent_prediction.html')
+
+if __name__ == '__main__':
+    app.run(host="127.0.0.1", port=8000, debug=True)
