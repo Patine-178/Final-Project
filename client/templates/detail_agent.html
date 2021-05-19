@@ -1,0 +1,90 @@
+{% extends 'client_layout.html' %}
+{% block body %}
+<br>
+<div class="container">
+    <div class="card" style="background-color: rgb(0, 0, 0);">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6 mt-3 mb-3">
+                    <img class="img-fluid mb-2" alt="100%x280" src="{{ url_for('static', filename='image/agent/'+agent['result'][0]['image'][1]) }}">
+                </div>
+                <div class="details col-md-6 mt-5 mb-3">
+                    <h1 class="t text-danger">{{ agent['result'][0]['name'] }}</h1>
+                    <div class="col-10">
+                        <hr>
+                    </div>
+                    <h3 class="t text-white">{{ agent['result'][0]['type'] }}</h3>
+                    <div class="col-8">
+                        <p class="t text-white">{{ agent['result'][0]['biography'] }}</p>
+                    </div>
+
+                    <br>
+                    <div class="d-flex align-items-start">
+                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <button class="nav-link active" id="pills-Q-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-Q" type="button" role="tab" aria-controls="v-pills-Q"
+                                aria-selected="true">Skill Q</button>
+                            <button class="nav-link" id="v-pills-E-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-E" type="button" role="tab" aria-controls="v-pills-E"
+                                aria-selected="false">Skill E</button>
+                            <button class="nav-link" id="v-pills-C-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-C" type="button" role="tab" aria-controls="v-pills-C"
+                                aria-selected="false">Skill C</button>
+                            <button class="nav-link" id="v-pills-x-tab" data-bs-toggle="pill"
+                                data-bs-target="#v-pills-X" type="button" role="tab" aria-controls="v-pills-X"
+                                aria-selected="false">Ultimate</button>
+                        </div>
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-Q" role="tabpanel"
+                                aria-labelledby="pills-Q-tab">
+                                <h3 class="t text-danger">{{ agent['result'][0]['specialSkills']['skill1']['skillName'] }}</h3>
+                                <div class="col-9">
+                                    <span class="t text-white">{{ agent['result'][0]['specialSkills']['skill1']['description'] }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-E" role="tabpanel"
+                                aria-labelledby="v-pills-E-tab">
+                                <h3 class="t text-danger">{{ agent['result'][0]['specialSkills']['skill2']['skillName'] }}</h3>
+                                <div class="col-9">
+                                    <span class="t text-white">{{ agent['result'][0]['specialSkills']['skill2']['description'] }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-C" role="tabpanel"
+                                aria-labelledby="v-pills-C-tab">
+                                <h3 class="t text-danger">{{ agent['result'][0]['specialSkills']['skill3']['skillName'] }}</h3>
+                                <div class="col-9">
+                                    <span class="t text-white">{{ agent['result'][0]['specialSkills']['skill3']['description'] }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-X" role="tabpanel"
+                                aria-labelledby="v-pills-X-tab">
+                                <h3 class="t text-danger">{{ agent['result'][0]['specialSkills']['ultimateSkill']['skillName'] }}</h3>
+                                <div class="col-9">
+                                    <span class="t text-white">{{ agent['result'][0]['specialSkills']['ultimateSkill']['description'] }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="col-11">
+                        <div class="ratio ratio-16x9 mt-3 mb-3">
+                            <iframe
+                              src="{{ agent_video['result'][0]['trailer'] }}"
+                              title="YouTube video"
+                              allowfullscreen
+                            ></iframe>
+                          </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

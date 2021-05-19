@@ -1,0 +1,149 @@
+{% extends 'client_layout.html' %}
+{% block body %}
+<div style="background-color: rgba(0, 0, 0, 0.7);">
+    <div class="container ">
+        <div class="row">
+            <br>
+            <h1 class="t text-white mt-5">SIDEARM</h1>
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                {% for i in range(all_sidearm['totalResult']) %}
+                <div class="col">
+                    <div class="card {% if i != 0 %} ml-3 {% endif %} whiteCard">
+                        <div style="background-color: #0D1721; height: 8rem;">
+                            <img class="img-fluid mt-3" alt="classic" src="{{ url_for('static', filename='image/weapon/'+all_sidearm['result'][i]['image']) }}" style="height:6rem;">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title t whiteCard">{{ all_sidearm['result'][i]['name'] }}</h5>
+                            <a href="/client/weapon/{{ all_sidearm['result'][i]['id'] }}">
+                                <button class="btn btn--light">
+                                    <span class="btn__inner">
+                                        <span class="btn__slide"></span>
+                                        <span class="btn__content">DETAIL</span>
+                                    </span>
+                                </button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <br>
+            <h1 class="t text-white mt-3">SHOTGUN</h1>
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                {% for i in range(all_shotgun['totalResult']) %}
+                <div class="col">
+                    <div class="card {% if i != 0 %} ml-3 {% endif %}">
+                        <div style="background-color: #0D1721; height: 8rem;">
+                            <img class="img-fluid mt-3" alt="classic" src="{{ url_for('static', filename='image/weapon/'+all_shotgun['result'][i]['image']) }}" style="height:6rem;">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title t">{{ all_shotgun['result'][i]['name'] }}</h5>
+                            <a href="/client/weapon/{{ all_shotgun['result'][i]['id'] }}">
+                                <button class="btn btn--light">
+                                    <span class="btn__inner">
+                                        <span class="btn__slide"></span>
+                                        <span class="btn__content">DETAIL</span>
+                                    </span>
+                                </button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <br>
+            <h1 class="t text-white mt-3">SMG</h1>
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                {% for i in range(all_smg['totalResult']) %}
+                <div class="col">
+                    <div class="card {% if i != 0 %} ml-3 {% endif %}">
+                        <div style="background-color: #0D1721; height: 8rem;">
+                            <img class="img-fluid mt-3" alt="classic" src="{{ url_for('static', filename='image/weapon/'+all_smg['result'][i]['image']) }}" style="height:6rem;">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title t">{{ all_smg['result'][i]['name'] }}</h5>
+                            <a href="/client/weapon/{{ all_smg['result'][i]['id'] }}">
+                                <button class="btn btn--light">
+                                    <span class="btn__inner">
+                                        <span class="btn__slide"></span>
+                                        <span class="btn__content">DETAIL</span>
+                                    </span>
+                                </button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <br>
+            <h1 class="t text-white mt-3">SNIPER</h1>
+
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                {% for i in range(all_sniper['totalResult']) %}
+                <div class="col">
+                    <div class="card {% if i != 0 %} ml-3 {% endif %}">
+                        <div style="background-color: #0D1721; height: 8rem;">
+                            <img class="img-fluid mt-3" alt="classic" src="{{ url_for('static', filename='image/weapon/'+all_sniper['result'][i]['image']) }}" style="height:6rem;">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title t">{{ all_sniper['result'][i]['name'] }}</h5>
+                            <a href="/client/weapon/{{ all_sniper['result'][i]['id'] }}">
+                                <button class="btn btn--light">
+                                    <span class="btn__inner">
+                                        <span class="btn__slide"></span>
+                                        <span class="btn__content">DETAIL</span>
+                                    </span>
+                                </button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <br>
+            <h1 class="t text-white mt-3">RIFLES</h1>
+
+            <div class="row row-cols-1 row-cols-md-5 g-4">
+                {% for i in range(all_rifles['totalResult']) %}
+                <div class="col">
+                    <div class="card {% if i != 0 %} ml-3 {% endif %}">
+                        <div style="background-color: #0D1721; height: 8rem;">
+                            <img class="img-fluid mt-3" alt="classic" src="{{ url_for('static', filename='image/weapon/'+all_rifles['result'][i]['image']) }}" style="height:6rem;">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title t">{{ all_rifles['result'][i]['name'] }}</h5>
+                            <a href="/client/weapon/{{ all_rifles['result'][i]['id'] }}">
+                                <button class="btn btn--light">
+                                    <span class="btn__inner">
+                                        <span class="btn__slide"></span>
+                                        <span class="btn__content">DETAIL</span>
+                                    </span>
+                                </button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+{% endblock %}

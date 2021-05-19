@@ -1,0 +1,1099 @@
+openapi: 3.0.0
+info:
+  title: Valorant API
+  version: 1.0.0
+
+paths:
+  /searchAgent:
+    get:
+      security:
+        - ApiKeyAuth: []
+      description: SEARCH AGENT operations
+      parameters: 
+        - in: query
+          name: id
+          description: Agent id
+          required: false
+          schema:
+            type: integer
+            example: 101
+        - in: query
+          name: name
+          description: Agent name
+          required: false
+          schema:
+            type: string
+            example: "Jett"
+        - in: query
+          name: type
+          description: Agent type
+          required: false
+          schema:
+            type: string
+            example: "Duelist"
+      responses:
+        '200':
+          description: List of the agent in valorant game.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                    description: Code status
+                  message:
+                    type: string
+                    example: "Success"
+                    description: Result message
+                  totalResult:
+                    type: integer
+                    example: 1
+                    description: Total number of agent from search
+                  result:
+                    $ref: '#/components/schemas/Agent'
+                required: 
+                  - status
+                  - message
+                  - totalResult
+                  - result
+        '500':
+          $ref: '#/components/responses/500ApiError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /searchWeapon:
+    get:
+      security:
+        - ApiKeyAuth: []
+      description: SEARCH WEAPON operations
+      parameters:
+        - in: query
+          name: id
+          description: Weapon id
+          required: false
+          schema:
+            type: integer
+            example: 212
+        - in: query
+          name: name
+          description: Weapon name
+          required: false
+          schema:
+            type: string
+            example: "Vandal"
+        - in: query
+          name: type  
+          description: Weapon type
+          required: false
+          schema:
+            type: string
+            example: "Rifles"
+        - in: query
+          name: sortByDamage
+          description: Sort weapon by damage (DESC, ASC)
+          required: false
+          schema:
+            type: string
+            example: "ASC"
+        - in: query
+          name: sortByPrice
+          description: Sort weapon by price (DESC, ASC)
+          required: false
+          schema:
+            type: string
+            example: "DESC"
+      responses:
+        '200':
+          description: List of the weapon in valorant game.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                    description: Code status
+                  message:
+                    type: string
+                    example: "Success"
+                    description: Result message
+                  totalResult:
+                    type: integer
+                    example: 1
+                    description: Total number of weapon from search
+                  result:
+                    $ref: '#/components/schemas/Weapon'
+                required:
+                  - status
+                  - message
+                  - totalResult
+                  - result
+        '500':
+          $ref: '#/components/responses/500ApiError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /searchMap:
+    get:
+      security:
+        - ApiKeyAuth: []
+      description: SEARCH MAP operations
+      parameters:
+        - in: query
+          name: id
+          description: Map id
+          required: false
+          schema:
+            type: integer
+            example: 301
+        - in: query
+          name: name
+          description: Map name
+          required: false
+          schema:
+            type: string
+            example: "ASCENT"
+        - in: query
+          name: recommendAgentId
+          description: Agent id
+          required: false
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: List of the map in valorant game.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                    description: Code status
+                  message:
+                    type: string
+                    example: "Success"
+                    description: Result message
+                  totalResult:
+                    type: integer
+                    example: 1
+                    description: Total number of weapon from search
+                  result:
+                    $ref: '#/components/schemas/Map'
+                required: 
+                  - status
+                  - message
+                  - totalResult
+                  - result
+        '500':
+          $ref: '#/components/responses/500ApiError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /video/agent/{id}:
+    get:
+      security:
+        - ApiKeyAuth: []
+      parameters: 
+        - in: path
+          name: id
+          description: Agent id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: List of the agent video.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                    description: Code status
+                  message:
+                    type: string
+                    example: "Success"
+                    description: Result message
+                  totalResult:
+                    type: integer
+                    example: 1
+                    description: Total number of agent video from search
+                  result:
+                    $ref: '#/components/schemas/AgentVideo'
+                required:
+                  - status
+                  - message
+                  - totalResult
+                  - result
+        '500':
+          $ref: '#/components/responses/500ApiError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /video/weapon/{id}:
+    get:
+      security:
+        - ApiKeyAuth: []
+      parameters: 
+        - in: path
+          name: id
+          description: Weapon id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      responses:
+        '200':
+          description: List of the weapon video.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                    description: Code status
+                  message:
+                    type: string
+                    example: "Success"
+                    description: Result message
+                  totalResult:
+                    type: integer
+                    example: 1
+                    description: Total number of weapon video from search
+                  result:
+                    $ref: '#/components/schemas/WeaponVideo'
+                required:
+                  - status
+                  - message
+                  - totalResult
+                  - result
+        '500':
+          $ref: '#/components/responses/500ApiError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /ml/agent:
+    post:
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                base64:
+                  type: string
+                  example: "fqtbuo23402909qwhf"
+                  description: Base64
+      responses:
+        '200':
+          description: Prediction result.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prediction:
+                    type: string
+                    example: "Jett"
+                    description: Agent name.
+                  confidence:
+                    type: number
+                    example: 0.99
+                    description: Prediction confidence
+                required:
+                  - prediction
+                  - confidence
+        '500':
+          description: Prediction fail
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prediction:
+                    type: string
+                    example: "Prediction fail."
+                    description: Message error.
+                  confidence:
+                    type: number
+                    example: 0.0
+                    description: Prediction confidence
+                required:
+                  - prediction
+                  - confidence
+        '401':
+          $ref: '#/components/responses/401Error'
+  /agent:
+    post:
+      security:
+        - Authentication: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentAdd'
+      responses:
+        '200':
+          description: Message result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /agent/{id}:
+    delete:
+      security:
+        - Authentication: []
+      parameters: 
+        - in: path
+          name: id
+          description: Agent id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: Delete agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+    put:
+      security:
+        - Authentication: []
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentEdit'
+      responses:
+        '200':
+          description: Update agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /weapon:
+    post:
+      security:
+        - Authentication: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WeaponAdd'
+      responses:
+        '200':
+          description: Message result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /weapon/{id}:
+    delete:
+      security:
+        - Authentication: []
+      parameters: 
+        - in: path
+          name: id
+          description: Weapon id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      responses:
+        '200':
+          description: Delete weapon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+    put:
+      security:
+        - Authentication: []
+      parameters: 
+        - in: path
+          name: id
+          description: Weapon id
+          required: true
+          schema:
+            type: integer
+            example: 201
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeaponEdit'
+      responses:
+        '200':
+          description: Update weapon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /map:
+    post:
+      security:
+        - Authentication: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MapAdd'
+      responses:
+        '200':
+          description: Message result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+  /map/{id}:
+    delete:
+      security:
+        - Authentication: []
+      parameters: 
+        - in: path
+          name: id
+          description: Map id
+          required: true
+          schema:
+            type: integer
+            example: 301
+      responses:
+        '200':
+          description: Delete map
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+    put:
+      security:
+        - Authentication: []
+      parameters: 
+        - in: path
+          name: id
+          description: Map id
+          required: true
+          schema:
+            type: integer
+            example: 301
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapEdit'
+      responses:
+        '200':
+          description: Update map
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edit'
+        '500':
+          $ref: '#/components/responses/500EditError'
+        '401':
+          $ref: '#/components/responses/401Error'
+
+components:
+  securitySchemes:
+    Authentication:
+      type: http
+      scheme: basic
+    ApiKeyAuth: 
+      type: apiKey
+      in: query
+      name: apiKey
+  schemas:
+    Agent:
+      description: Search agent results
+      type: array
+      items:
+        properties:
+          id:
+            type: integer
+            example: 101
+            description: Agent id
+          name:
+            type: string
+            example: "Jett"
+            description: Agent name
+          type:
+            type: string
+            example: "Duelist"
+            description: Agent type
+          biography:
+            type: string
+            example: "เข้าร่วมรบในฐานะตัวแทนบ้านเกิดของเธอจากประเทศเกาหลีใต้ สไตล์การต่อสู้ที่แสนคล่องตัวและสง่างามของ Jett ทำให้เธอสามารถเผชิญหน้ากับความเสี่ยงในแบบที่ไม่มีใครทำได้ เธอวิ่งวนไปทั่วความชุลมุน เชือดเฉือนศัตรูก่อนที่พวกเขาจะรู้ว่าสิ่งใดได้โจมตีพวกเขา"
+            description: Agent biography
+          image:
+            type: array
+            items:
+              type: string
+              example: "jett.jpg"
+              description: Agent images
+          specialSkills:
+            $ref: '#/components/schemas/Agent_skill'
+        required: 
+          - id
+          - name
+          - type
+          - biography
+          - image
+          - specialSkills
+    AgentEdit:
+      description: Agent request body format
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Jett"
+          description: Agent name
+        type:
+          type: string
+          example: "Duelist"
+          description: Agent type
+        biography:
+          type: string
+          example: "เข้าร่วมรบในฐานะตัวแทนบ้านเกิดของเธอจากประเทศเกาหลีใต้ สไตล์การต่อสู้ที่แสนคล่องตัวและสง่างามของ Jett ทำให้เธอสามารถเผชิญหน้ากับความเสี่ยงในแบบที่ไม่มีใครทำได้ เธอวิ่งวนไปทั่วความชุลมุน เชือดเฉือนศัตรูก่อนที่พวกเขาจะรู้ว่าสิ่งใดได้โจมตีพวกเขา"
+          description: Agent biography
+        image:
+          type: array
+          items:
+            type: string
+            example: "jett.jpg"
+            description: Agent images
+        specialSkills:
+          $ref: '#/components/schemas/Agent_skill'
+        trailer:
+          type: string
+          example: "https://youtu.be/-cPLXswVsvc"
+          description: Agent trailer video
+        tutorial:
+          type: string
+          example: "https://youtu.be/ea-TCnB43iQ"
+          description: Agent tutorial video
+    AgentAdd:
+      description: Agent request body format
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Jett"
+          description: Agent name
+        type:
+          type: string
+          example: "Duelist"
+          description: Agent type
+        biography:
+          type: string
+          example: "เข้าร่วมรบในฐานะตัวแทนบ้านเกิดของเธอจากประเทศเกาหลีใต้ สไตล์การต่อสู้ที่แสนคล่องตัวและสง่างามของ Jett ทำให้เธอสามารถเผชิญหน้ากับความเสี่ยงในแบบที่ไม่มีใครทำได้ เธอวิ่งวนไปทั่วความชุลมุน เชือดเฉือนศัตรูก่อนที่พวกเขาจะรู้ว่าสิ่งใดได้โจมตีพวกเขา"
+          description: Agent biography
+        image:
+          type: array
+          items:
+            type: string
+            example: "jett.jpg"
+            description: Agent images
+        specialSkills:
+          $ref: '#/components/schemas/Agent_skill'
+        trailer:
+          type: string
+          example: "https://youtu.be/-cPLXswVsvc"
+          description: Agent trailer video
+        tutorial:
+          type: string
+          example: "https://youtu.be/ea-TCnB43iQ"
+          description: Agent tutorial video
+      required: 
+        - id
+        - name
+        - type
+        - biography
+        - image
+        - specialSkills
+        - trailer
+        - tutorial
+    Skill_detail:
+      type: object
+      properties:
+        press:
+          type: string
+          example: "Q"
+          description: Key press for use skill
+        skillName:
+          type: string
+          example: "UPDRAFT"
+          description: Skill name
+        description:
+          type: string
+          example: "พัดพา Jett ให้ลอยขึ้นไปบนอากาศทันที"
+          description: Skill description
+        price:
+          type: integer
+          example: 100
+          description: Skill price
+        orbTotal:
+          type: integer
+          example: 6
+          description: Ultimate skill
+        volume:
+          type: integer
+          example: 2
+          description: Volumn for use skill
+      required: 
+          - press
+          - skillName
+          - description
+    Agent_skill:
+      type: object
+      properties:
+        skill1:
+          description: First skill
+          $ref: '#/components/schemas/Skill_detail'
+        skill2:
+          description: Second skill
+          $ref: '#/components/schemas/Skill_detail'
+        skill3:
+          description: Third skill
+          $ref: '#/components/schemas/Skill_detail'
+        ultimateSkill:
+          description: UltimateSkill
+          $ref: '#/components/schemas/Skill_detail'
+      required: 
+          - skill1
+          - skill2
+          - skill3
+          - ultimateSkill
+    Weapon:
+      description: Search weapon results
+      type: array
+      items:
+        properties:
+          id:
+            type: integer
+            example: 212
+            description: Weapon id
+          name:
+            type: string
+            example: "Vandal"
+            description: Weapon name
+          type:
+            type: string
+            example: "Rifles"
+            description: Weapon type
+          price:
+            type: integer
+            example: 2900
+            description: Weapon price
+          image:
+            type: string
+            example: "vandal.png"
+            description: Weapon image
+          property:
+            description: Weapon property
+            $ref: '#/components/schemas/Weapon_property'
+          damage:
+            description: Weapon damage
+            $ref: '#/components/schemas/Weapon_damage'
+        required: 
+          - id
+          - name
+          - type
+          - price
+          - image
+          - property
+          - damage
+    WeaponEdit:
+      description: Weapon request body format
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Vandal"
+          description: Weapon name
+        type:
+          type: string
+          example: "Rifles"
+          description: Weapon type
+        price:
+          type: integer
+          example: 2900
+          description: Weapon price
+        image:
+          type: string
+          example: "vandal.png"
+          description: Weapon image
+        property:
+          description: Weapon property
+          $ref: '#/components/schemas/Weapon_property'
+        damage:
+          description: Weapon damage
+          $ref: '#/components/schemas/Weapon_damage'
+        tutorial:
+          type: string
+          example: "https://youtu.be/4LAKXr-OP7c"
+          description: Weapon tutorial video
+    WeaponAdd:
+      description: Weapon request body format
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Vandal"
+          description: Weapon name
+        type:
+          type: string
+          example: "Rifles"
+          description: Weapon type
+        price:
+          type: integer
+          example: 2900
+          description: Weapon price
+        image:
+          type: string
+          example: "vandal.png"
+          description: Weapon image
+        property:
+          description: Weapon property
+          $ref: '#/components/schemas/Weapon_property'
+        damage:
+          description: Weapon damage
+          $ref: '#/components/schemas/Weapon_damage'
+        tutorial:
+          type: string
+          example: "https://youtu.be/4LAKXr-OP7c"
+          description: Weapon tutorial video
+      required: 
+          - id
+          - name
+          - type
+          - price
+          - image
+          - property
+          - damage
+          - tutorial
+    Weapon_property:
+      type: object
+      description: Weapon property
+      properties:
+        fireRate:
+          type: string
+          example: "9.75 rds/sec"
+          description: Weapon fire rate (rds/sec)
+        runSpeed:
+          type: string
+          example: "5.4 m/sec"
+          description: Agent run speed when hold weapon (m/sec)
+        equipSpeed:
+          type: string
+          example: "1 sec"
+          description: Weapon equip speed (sec)
+        firstShotSpread:
+          type: string
+          example: "0.25/0.157 deg"
+          description: "1st shot spread (deg)"
+        reloadSpeed:
+          type: string
+          example: "2.5 sec"
+          description: Weapon reload speed (sec)
+        magazine:
+          type: string
+          example: "25 rds"
+          description: Weapon magazine (rds)
+      required: 
+        - fireRate
+        - runSpeed
+        - equipSpeed
+        - firstShotSpread
+        - reloadSpeed
+        - magazine
+    Weapon_damage_agent:
+      type: object
+      description: Weapon damage agent
+      properties:
+        head:
+          type: integer
+          example: 160
+          description: Head damage
+        body:
+          type: integer
+          example: 40
+          description: Body damage
+        leg:
+          type: integer
+          example: 34
+          description: Leg damage
+      required: 
+        - head
+        - body
+        - leg
+    Weapon_damage:
+      type: object
+      properties:
+        shotRange:
+          description: Short range damage
+          $ref: '#/components/schemas/Weapon_damage_agent'
+        intermediateRange:
+          description: Intermediate range damage
+          $ref: '#/components/schemas/Weapon_damage_agent'
+        longRange:
+          description: Long range damage
+          $ref: '#/components/schemas/Weapon_damage_agent'
+      required: 
+        - shotRange
+        - intermediateRange
+        - longRange
+    Map:
+      description: Search map results
+      type: array
+      items:
+        properties:
+          id:
+            type: integer
+            example: 301
+            description: Map id
+          name:
+            type: string
+            example: "ASCENT"
+            description: Map name
+          description:
+            type: string
+            example: "ลานกว้างสำหรับสงครามยิ้บย้อยเพื่อชิงตำแหน่งและความได้เปรียบ ได้แยกสนามออกเป็นสองส่วนบน Ascent แต่ละจุดสามารถเสริมการป้องกันด้วยประตูระเบิดที่หมุนกลับไม่ได้ เมื่อประตูมันหล่นลงมาแล้ว คุณต้องทำลายมันหรือหาทางอื่น ยอมสละอาณาเขตให้น้อยที่สุดเท่าที่จะเป็นไปได้"
+            description: Map description
+          recommendedComps:
+            description: Agent recommend for map
+            type: array
+            items:
+              type: integer
+              example: 101
+              description: Agent id
+          image:
+            type: array
+            items:
+              type: string
+              example: "ascent.jpg"
+              description: Map images
+        required: 
+          - id
+          - name
+          - description
+          - recommendedComps
+          - image
+    MapEdit:
+      description: Map request body format
+      type: object
+      properties:
+        name:
+          type: string
+          example: "ASCENT"
+          description: Map name
+        description:
+          type: string
+          example: "ลานกว้างสำหรับสงครามยิ้บย้อยเพื่อชิงตำแหน่งและความได้เปรียบ ได้แยกสนามออกเป็นสองส่วนบน Ascent แต่ละจุดสามารถเสริมการป้องกันด้วยประตูระเบิดที่หมุนกลับไม่ได้ เมื่อประตูมันหล่นลงมาแล้ว คุณต้องทำลายมันหรือหาทางอื่น ยอมสละอาณาเขตให้น้อยที่สุดเท่าที่จะเป็นไปได้"
+          description: Map description
+        recommendedComps:
+          description: Agent recommend for map
+          type: array
+          items:
+            type: integer
+            example: 101
+            description: Agent id
+        image:
+          type: array
+          items:
+            type: string
+            example: "ascent.jpg"
+            description: Map images
+    MapAdd:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "ASCENT"
+          description: Map name
+        description:
+          type: string
+          example: "ลานกว้างสำหรับสงครามยิ้บย้อยเพื่อชิงตำแหน่งและความได้เปรียบ ได้แยกสนามออกเป็นสองส่วนบน Ascent แต่ละจุดสามารถเสริมการป้องกันด้วยประตูระเบิดที่หมุนกลับไม่ได้ เมื่อประตูมันหล่นลงมาแล้ว คุณต้องทำลายมันหรือหาทางอื่น ยอมสละอาณาเขตให้น้อยที่สุดเท่าที่จะเป็นไปได้"
+          description: Map description
+        recommendedComps:
+          description: Agent recommend for map
+          type: array
+          items:
+            type: integer
+            example: 101
+            description: Agent id
+        image:
+          type: array
+          items:
+            type: string
+            example: "ascent.jpg"
+            description: Map images
+      required: 
+        - name
+        - description
+        - recommendedComps
+        - image
+    AgentVideo:
+      description: Search agent video results
+      type: array
+      items:
+        properties:
+          id:
+            type: integer
+            example: 101
+            description: Agent id
+          trailer:
+            type: string
+            example: "https://youtu.be/-cPLXswVsvc"
+            description: Agent trailer video
+          tutorial:
+            type: string
+            example: "https://youtu.be/ea-TCnB43iQ"
+            description: Agent tutorial video
+        required: 
+          - id
+          - trailer
+          - tutorial
+    WeaponVideo:
+      description: Search weapon video results
+      type: array
+      items:
+        properties:
+          id:
+            type: integer
+            example: 201
+            description: Weapon id
+          tutorial:
+            type: string
+            example: "https://youtu.be/4LAKXr-OP7c"
+            description: Weapon tutorial video
+        required: 
+          - id
+          - tutorial
+    Edit:
+      type: object
+      description: Message edit.
+      properties:
+        status:
+          type: integer
+          example: 200
+          description: Code status
+        message:
+          type: string
+          example: "Edit success"
+          description: Message edit success
+      required: 
+        - status
+        - message
+  responses:
+    500ApiError:
+      description: Search not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 500
+                description: Code status
+              message:
+                type: string
+                example: "Fail"
+                description: Result message
+              totalResult:
+                type: integer
+                example: 0
+                description: Total result from search
+              result:
+                description: Empty result
+                type: array
+                items: {
+                }
+                example: []
+            required: 
+              - status
+              - message
+              - totalResult
+              - result 
+    500EditError:
+      description: Edit API fail
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 500
+                description: Code status
+              message:
+                type: string
+                example: "Edit fail."
+                description: Result message
+            required: 
+              - status
+              - message
+    401Error:
+      description: Authorizations error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+                description: Code status
+              message:
+                type: string
+                example: "No access."
+                description: Error message
+            required: 
+              - status
+              - message

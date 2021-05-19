@@ -1,0 +1,546 @@
+[
+    {
+        "id": 201,
+        "name": "Marshal",
+        "type": "sniper",
+        "price": 1100,
+        "image": "marshal.png",
+        "property": {
+            "fireRate": "1.5 rds/sec",
+            "runSpeed": "5.4 m/sec",
+            "equipSpeed": "1.25 sec",
+            "firstShotSpread": "1/0 deg",
+            "reloadSpeed": "2.5 sec",
+            "magazine": "5 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 202,
+                "body": 101,
+                "leg": 85
+            },
+            "intermediateRange": {
+                "head": 202,
+                "body": 101,
+                "leg": 85
+            },
+            "longRange": {
+                "head": 202,
+                "body": 101,
+                "leg": 85
+            }
+        }
+    },
+    {
+        "id": 202,
+        "name": "Operator",
+        "type": "sniper",
+        "price": 5000,
+        "image": "operator.png",
+        "property": {
+            "fireRate": "0.6 rds/sec",
+            "runSpeed": "5.13 m/sec",
+            "equipSpeed": "1.5 sec",
+            "firstShotSpread": "5/0 deg",
+            "reloadSpeed": "3.7 sec",
+            "magazine": "5 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 255,
+                "body": 150,
+                "leg": 120
+            },
+            "intermediateRange": {
+                "head": 255,
+                "body": 150,
+                "leg": 120
+            },
+            "longRange": {
+                "head": 255,
+                "body": 150,
+                "leg": 120
+            }
+        }
+    },
+    {
+        "id": 203,
+        "name": "Bucky",
+        "type": "shotgun",
+        "price": 900,
+        "image": "bucky.png",
+        "property": {
+            "fireRate": "1.1 rds/sec",
+            "runSpeed": "5.06 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "2.6 deg",
+            "reloadSpeed": "2.5 sec",
+            "magazine": "5 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 40,
+                "body": 20,
+                "leg": 17
+            },
+            "intermediateRange": {
+                "head": 26,
+                "body": 13,
+                "leg": 11
+            },
+            "longRange": {
+                "head": 18,
+                "body": 9,
+                "leg": 7
+            }
+        }
+    },
+    {
+        "id": 204,
+        "name": "Judge",
+        "type": "shotgun",
+        "price": 1600,
+        "image": "judge.png",
+        "property": {
+            "fireRate": "3.5 rds/sec",
+            "runSpeed": "5.06 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "2.25 deg",
+            "reloadSpeed": "2.2 sec",
+            "magazine": "7 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 34,
+                "body": 17,
+                "leg": 14
+            },
+            "intermediateRange": {
+                "head": 26,
+                "body": 13,
+                "leg": 11
+            },
+            "longRange": {
+                "head": 20,
+                "body": 10,
+                "leg": 8
+            }
+        }
+    },
+    {
+        "id": 205,
+        "name": "Stinger",
+        "type": "smg",
+        "price": 1100,
+        "image": "stinger.png",
+        "property": {
+            "fireRate": "16 rds/sec",
+            "runSpeed": "5.73 m/sec",
+            "equipSpeed": "0.75 sec",
+            "firstShotSpread": "0.65 deg",
+            "reloadSpeed": "2.25 sec",
+            "magazine": "20 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 67,
+                "body": 27,
+                "leg": 22
+            },
+            "intermediateRange": {
+                "head": 67,
+                "body": 27,
+                "leg": 22
+            },
+            "longRange": {
+                "head": 62,
+                "body": 25,
+                "leg": 21
+            }
+        }
+    },
+    {
+        "id": 206,
+        "name": "Spectre",
+        "type": "smg",
+        "price": 1600,
+        "image": "spectre.png",
+        "property": {
+            "fireRate": "13.33 rds/sec",
+            "runSpeed": "5.73 m/sec",
+            "equipSpeed": "0.75 sec",
+            "firstShotSpread": "0.4 deg",
+            "reloadSpeed": "2.25 sec",
+            "magazine": "30 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 78,
+                "body": 26,
+                "leg": 22
+            },
+            "intermediateRange": {
+                "head": 78,
+                "body": 26,
+                "leg": 22
+            },
+            "longRange": {
+                "head": 66,
+                "body": 22,
+                "leg": 18
+            }
+        }
+    },
+    {
+        "id": 207,
+        "name": "Ares",
+        "type": "Machine guns",
+        "price": 1600,
+        "image": "ares.png",
+        "property": {
+            "fireRate": "10 rds/sec",
+            "runSpeed": "5.13 m/sec",
+            "equipSpeed": "1.25 sec",
+            "firstShotSpread": "0.8 deg",
+            "reloadSpeed": "3.25 sec",
+            "magazine": "50 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 72,
+                "body": 30,
+                "leg": 25
+            },
+            "intermediateRange": {
+                "head": 67,
+                "body": 28,
+                "leg": 23
+            },
+            "longRange": {
+                "head": 67,
+                "body": 28,
+                "leg": 23
+            }
+        }
+    },
+    {
+        "id": 208,
+        "name": "Odin",
+        "type": "Machine guns",
+        "price": 3200,
+        "image": "odin.png",
+        "property": {
+            "fireRate": "12 rds/sec",
+            "runSpeed": "5.13 m/sec",
+            "equipSpeed": "1.25 sec",
+            "firstShotSpread": "0.8 deg",
+            "reloadSpeed": "5 sec",
+            "magazine": "100 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 95,
+                "body": 38,
+                "leg": 32
+            },
+            "intermediateRange": {
+                "head": 77,
+                "body": 31,
+                "leg": 26
+            },
+            "longRange": {
+                "head": 77,
+                "body": 31,
+                "leg": 26
+            }
+        }
+    },
+    {
+        "id": 209,
+        "name": "Bulldog",
+        "type": "Rifles",
+        "price": 2100,
+        "image": "bulldog.png",
+        "property": {
+            "fireRate": "9.14 rds/sec",
+            "runSpeed": "5.4 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "0.3 deg",
+            "reloadSpeed": "2.5 sec",
+            "magazine": "24 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 115,
+                "body": 35,
+                "leg": 29
+            },
+            "intermediateRange": {
+                "head": 115,
+                "body": 35,
+                "leg": 29
+            },
+            "longRange": {
+                "head": 115,
+                "body": 35,
+                "leg": 29
+            }
+        }
+    },
+    {
+        "id": 210,
+        "name": "Guardian",
+        "type": "Rifles",
+        "price": 2400,
+        "image": "guardian.png",
+        "property": {
+            "fireRate": "5.25 rds/sec",
+            "runSpeed": "5.4 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "0.1 deg",
+            "reloadSpeed": "2.5 sec",
+            "magazine": "12 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 195,
+                "body": 65,
+                "leg": 48
+            },
+            "intermediateRange": {
+                "head": 195,
+                "body": 65,
+                "leg": 48
+            },
+            "longRange": {
+                "head": 195,
+                "body": 65,
+                "leg": 48
+            }
+        }
+    },
+    {
+        "id": 211,
+        "name": "Phantom",
+        "type": "Rifles",
+        "price": 2900,
+        "image": "phantom.png",
+        "property": {
+            "fireRate": "11 rds/sec",
+            "runSpeed": "5.4 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "0.2/0.11 deg",
+            "reloadSpeed": "2.5 sec",
+            "magazine": "30 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 156,
+                "body": 39,
+                "leg": 33
+            },
+            "intermediateRange": {
+                "head": 140,
+                "body": 35,
+                "leg": 29
+            },
+            "longRange": {
+                "head": 124,
+                "body": 31,
+                "leg": 26
+            }
+        }
+    },
+    {
+        "id": 212,
+        "name": "Vandal",
+        "type": "Rifles",
+        "price": 2900,
+        "image": "vandal.png",
+        "property": {
+            "fireRate": "9.75 rds/sec",
+            "runSpeed": "5.4 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "0.25/0.157 deg",
+            "reloadSpeed": "2.5 sec",
+            "magazine": "25 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 160,
+                "body": 40,
+                "leg": 34
+            },
+            "intermediateRange": {
+                "head": 160,
+                "body": 40,
+                "leg": 34
+            },
+            "longRange": {
+                "head": 160,
+                "body": 40,
+                "leg": 34
+            }
+        }
+    },
+    {
+        "id": 213,
+        "name": "Classic",
+        "type": "Sidearm",
+        "price": 0,
+        "image": "classic.png",
+        "property": {
+            "fireRate": "6.75 rds/sec",
+            "runSpeed": "5.73 m/sec",
+            "equipSpeed": "0.75 sec",
+            "firstShotSpread": "0.4 deg",
+            "reloadSpeed": "1.75 sec",
+            "magazine": "12 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 78,
+                "body": 26,
+                "leg": 22
+            },
+            "intermediateRange": {
+                "head": 66,
+                "body": 22,
+                "leg": 18
+            },
+            "longRange": {
+                "head": 66,
+                "body": 22,
+                "leg": 18
+            }
+        }
+    },
+    {
+        "id": 214,
+        "name": "Shorty",
+        "type": "Sidearm",
+        "price": 200,
+        "image": "shorty.png",
+        "property": {
+            "fireRate": "3.33 rds/sec",
+            "runSpeed": "5.4 m/sec",
+            "equipSpeed": "0.75 sec",
+            "firstShotSpread": "4 deg",
+            "reloadSpeed": "1.75 sec",
+            "magazine": "2 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 24,
+                "body": 12,
+                "leg": 10
+            },
+            "intermediateRange": {
+                "head": 16,
+                "body": 8,
+                "leg": 6
+            },
+            "longRange": {
+                "head": 6,
+                "body": 3,
+                "leg": 2
+            }
+        }
+    },
+    {
+        "id": 215,
+        "name": "Frenzy",
+        "type": "Sidearm",
+        "price": 500,
+        "image": "frenzy.png",
+        "property": {
+            "fireRate": "10 rds/sec",
+            "runSpeed": "5.73 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "0.45 deg",
+            "reloadSpeed": "1.5 sec",
+            "magazine": "13 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 78,
+                "body": 26,
+                "leg": 22
+            },
+            "intermediateRange": {
+                "head": 63,
+                "body": 21,
+                "leg": 17
+            },
+            "longRange": {
+                "head": 63,
+                "body": 21,
+                "leg": 17
+            }
+        }
+    },
+    {
+        "id": 216,
+        "name": "Ghost",
+        "type": "Sidearm",
+        "price": 500,
+        "image": "ghost.png",
+        "property": {
+            "fireRate": "6.75 rds/sec",
+            "runSpeed": "5.73 m/sec",
+            "equipSpeed": "0.75 sec",
+            "firstShotSpread": "0.3 deg",
+            "reloadSpeed": "1.5 sec",
+            "magazine": "15 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 105,
+                "body": 30,
+                "leg": 25
+            },
+            "intermediateRange": {
+                "head": 87,
+                "body": 25,
+                "leg": 21
+            },
+            "longRange": {
+                "head": 87,
+                "body": 25,
+                "leg": 21
+            }
+        }
+    },
+    {
+        "id": 217,
+        "name": "Sheriff",
+        "type": "Sidearm",
+        "price": 800,
+        "image": "sheriff.png",
+        "property": {
+            "fireRate": "4 rds/sec",
+            "runSpeed": "5.4 m/sec",
+            "equipSpeed": "1 sec",
+            "firstShotSpread": "0.25 deg",
+            "reloadSpeed": "2.25 sec",
+            "magazine": "6 rds"
+        },
+        "damage": {
+            "shortRange": {
+                "head": 159,
+                "body": 55,
+                "leg": 46
+            },
+            "intermediateRange": {
+                "head": 145,
+                "body": 50,
+                "leg": 42
+            },
+            "longRange": {
+                "head": 145,
+                "body": 50,
+                "leg": 42
+            }
+        }
+    }
+]

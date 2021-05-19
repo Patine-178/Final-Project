@@ -1,0 +1,150 @@
+{% extends 'client_layout.html' %}
+{% block body %}
+<section class="pt-5 pb-5 mt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="mb-3 text-white t">AGENT VALORANT</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-outline-danger btn-rounded mb-3 mr-1" href="#AGENT" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left text-white"></i>
+                </a>
+                <a class="btn btn-outline-danger btn-rounded mb-3 " href="#AGENT" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right text-white"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="AGENT" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% for i in range(0, 15, 3) %}
+                        <div class="carousel-item {% if i == 0 %} active {% endif %}">
+                            <div class="row">
+                            {% for j in range(i, 3+i) %}
+                                {% if j != 14 %}
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                            <img class="img-fluid" alt="" src="{{ url_for('static', filename='image/agent/'+all_agent['result'][j]['image'][0]) }}">
+                                            <div class="card-body">
+                                                <h4 class="card-title t">AGENT {{ all_agent['result'][j]['name'] }}</h4>
+                                                <a href="/client/agent/{{ all_agent['result'][j]['id'] }}">
+                                                    <button class="btn btn--light">
+                                                        <span class="btn__inner">
+                                                            <span class="btn__slide"></span>
+                                                            <span class="btn__content">DETAIL</span>
+                                                        </span>
+                                                    </button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pt-5 pb-5 mt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="mb-3 text-white t">MAP VALORANT</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-outline-danger btn-rounded mb-3 mr-1" href="#MAP" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left text-white"></i>
+                </a>
+                <a class="btn btn-outline-danger btn-rounded mb-3 " href="#MAP" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right text-white"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="MAP" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        {% for i in range(0, 6, 3) %}
+                        <div class="carousel-item {% if i == 0 %} active {% endif %}">
+                            <div class="row">
+                                {% for j in range(i, 3+i) %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img class="img-fluid" alt="100%x280" src="{{ url_for('static', filename='image/map/'+all_map['result'][j]['image'][0]) }}">
+                                        <div class="card-body">
+                                            <h4 class="card-title t">{{ all_map['result'][j]['name'] }}</h4>
+                                            <a href="/client/map/{{ all_map['result'][j]['id'] }}">
+                                                <button class="btn btn--light">
+                                                    <span class="btn__inner">
+                                                        <span class="btn__slide"></span>
+                                                        <span class="btn__content">DETAIL</span>
+                                                    </span>
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-5 pb-5 mt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="mb-3 text-white t">GUN VALORANT</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-outline-danger btn-rounded mb-3 mr-1" href="#GUN" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left text-white"></i>
+                </a>
+                <a class="btn btn-outline-danger btn-rounded mb-3 " href="#GUN" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right text-white"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="GUN" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for i in range(0, 18, 3) %}
+                            <div class="carousel-item {% if i == 0 %} active {% endif %}">
+                                <div class="row">
+                                    {% for j in range(i, 3+i) %}
+                                        {% if j != 17 %}
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <div style="background-color: #0D1721;">
+                                                        <img class="img-fluid mt-3" alt="100%x280" src="{{ url_for('static', filename='image/weapon/'+all_weapon['result'][j]['image']) }}">
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title t">{{ all_weapon['result'][j]['name'] }}</h4>
+                                                        <a href="/client/weapon/{{ all_weapon['result'][j]['id'] }}">
+                                                            <button class="btn btn--light">
+                                                                <span class="btn__inner">
+                                                                    <span class="btn__slide"></span>
+                                                                    <span class="btn__content">DETAIL</span>
+                                                                </span>
+                                                            </button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'client_layout.html' %}
+
+{% block body %}
+<div class="container-fluid" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div class="row">
+            <div class="text-center" style="margin-top: 20px;">
+                <p class="t" style="font-size: 75px; color:red ">MACHINE</p>
+            </div>
+            <!-- upload -->
+            <div class="col-5">
+                <div class="container ml-3 mb-5 rounded" style="background-color: white;">
+                    <div class="card" style="background-color: white;">
+                        <br>
+                        <h1 class="text-danger text-center t">AGENT</h1>
+                        <div class="text-center">
+                            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                                class="avatar img-fluid hoverable img-thumbnail h-50 w-50" alt="avatar">
+                            <br>
+                            <br>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="input-group w-90 m-auto">
+
+                                <div class="custom-file mt-3 ml-5 w-50">
+                                    <input type="file" name="file1" class="custom-file-input file-upload" id="inputGroupFile01"
+                                        aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="inputGroupFile01"></label>
+                                </div>
+                                <button class="btn btn--light mr-3" >
+                                    <span class="btn__inner">
+                                        <span class="btn__slide"></span>
+                                        <span class="btn__content">SEND</span>
+                                    </span>
+                                </button>
+
+                            </div>
+                            </form>
+                        </div>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="text-white text-center" style="margin-top: 150px;">
+                    <i class="fas fa-arrow-right fa-8x"></i>
+                </div>
+            </div>
+            <!-- result -->
+            <div class="col-5">
+                <div class="container mr-5 mb-5 rounded" style="background-color: white; ">
+                    <div class="card" style="background-color: white;">
+                        <br>
+                        <h1 class="text-danger text-center t">RESULT</h1>
+                        {% if agent %}
+                        <div class="text-center">
+                            <img src="{{ url_for('static', filename='image/agent/'+agent['result'][0]['image'][2]) }}"
+                                class="img-fluid hoverable img-thumbnail h-50 w-50" alt="...">
+                            <br>
+                            <br>
+                        </div>
+                        <h2 class=" text-center t">RESULT <span class="text-danger t" >{{ agent['result'][0]['name'] }}</span></h2>
+                        
+                        {% else %}
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <h2 class=" text-center t">RESULT <span class="text-danger t"> ?</span></h2>
+                        
+                        {% endif %}
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock  %}
